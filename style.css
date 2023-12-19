@@ -5,6 +5,7 @@ body {
   height: 200px;
   border-radius: 50%;
   background: rgb(32, 32, 41);
+  color: white;
 
   display: flex;
   flex-direction: column;
@@ -33,6 +34,11 @@ header {
   margin-bottom: 20px;
 }
 
+/* .flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 /* The switch - the box around the slider */
 .switch {
@@ -95,4 +101,16 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.uploader {
+  visibility: hidden;
+}
+
+.uploadBtn {
+  padding: 4px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 20px;
+  cursor: pointer;
 }
