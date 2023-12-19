@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Simple Style Changer",
+  "version": "1.0",
+  "description": "Change style on button click",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://chat.openai.com/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
