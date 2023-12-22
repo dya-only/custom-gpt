@@ -4,16 +4,22 @@
   "version": "1.0",
   "description": "Change your GPT's Background!",
   "permissions": [
-    "activeTab",
-    "storage"
+    "storage",
+    "activeTab"
   ],
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["*://chat.openai.com/*"],
       "js": ["content_script.js"]
     }
+  ],
+  "host_permissions": [
+    "*://chat.openai.com/*"
   ]
 }
