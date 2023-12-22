@@ -37,7 +37,7 @@ chrome.storage.local.get(['switch', 'img'], (result) => {
       if (main) {
         const bg = new Image()
         bg.className = 'bg'
-        bg.src = result.img  // 'https://chatgpt-custom.s3.ap-northeast-2.amazonaws.com/ash_4k.png'
+        bg.src = result.img
         bg.style.width = '100%'
         bg.style.height = '100%'
         bg.style.position = 'absolute'
