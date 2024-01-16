@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Change Style</title>
   <link rel="stylesheet" href="./style.css">
@@ -17,9 +18,15 @@
     <span class="slider round"></span>
   </label>
 
-  <label class="uploadBtn" for="uploadImg">Upload</label>
+  <label class="uploadBtn" for="uploadImg">Click to Upload!</label>
   <input class="uploader" type="file" id="uploadImg" accept="image/*">
+
+  <div class="slider-container">
+    <input type="range" min="1" max="100" value="50" class="range-slider" id="myRange">
+  </div>
+
 
   <script src="popup.js"></script>
 </body>
+
 </html>

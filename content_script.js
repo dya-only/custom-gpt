@@ -1,7 +1,6 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "changeColor") {
     if (request.value) {
-      const nav = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.absolute.left-0.right-0 > div')
       const main = document.querySelector('main')
 
       if (main) {
@@ -16,11 +15,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           bg.style.objectFit = 'cover'
           main.prepend(bg)
 
-          nav.style.backgroundColor = 'transparent'
-          nav.style.backdropFilter = 'blur(10px)'
+          window.location.reload()
         })
-
-        window.location.reload()
       }
     } else {
       document.querySelector('main > img').remove()
@@ -32,7 +28,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 chrome.storage.local.get(['switch', 'img'], (result) => {
   if (result.switch !== undefined) {
     if (result.switch) {
-      const nav = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.absolute.left-0.right-0 > div')
       const main = document.querySelector('main')
       if (main) {
         const bg = new Image()
@@ -44,10 +39,44 @@ chrome.storage.local.get(['switch', 'img'], (result) => {
         bg.style.filter = 'brightness(50%)'
         bg.style.objectFit = 'cover'
         main.prepend(bg)
-
-        nav.style.backgroundColor = 'transparent'
-        nav.style.backdropFilter = 'blur(10px)'
       }
+
+      setInterval(() => {
+        const navContainer = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div > div')
+        const nav = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div > div > div')
+        const nav2 = document.querySelector('main > div[role="presentation"] > div > div > div > div')
+        const textarea = document.querySelector('main > div[role="presentation"] > .w-full > form > div > div.flex.w-full.items-center > div')
+        const spans = document.querySelectorAll('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.w-full.pt-2 > form > div > div > div > div > div > div > div > span > button')
+        // const logo = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.flex.h-full.flex-col.items-center.justify-center > div.relative > div > div')
+        // const text = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.flex.h-full.flex-col.items-center.justify-center > div.mb-5.text-2xl.font-medium')
+
+        nav.style.transition = 'all .5s'
+        nav.style.backgroundColor = 'transparent'
+        nav.style.backdropFilter = 'blur(5px)'
+
+        nav2.style.transition = 'all .5s'
+        nav2.style.transition = 'all .5s'
+        nav2.style.backgroundColor = 'transparent'
+        nav2.style.backdropFilter = 'blur(5px)'
+
+        textarea.style.transition = 'all .5s'
+        textarea.style.backgroundColor = 'rgb(52, 53, 65, .6)'
+        textarea.style.border = 'none'
+        textarea.style.backdropFilter = 'blur(5px)'
+
+        spans.forEach(el => {
+          el.style.transition = 'all .5s'
+          el.style.backgroundColor = 'rgb(52, 53, 65, .6)'
+          el.style.border = 'none'
+          el.style.backdropFilter = 'blur(5px)'
+        })
+
+        navContainer.style.backdropFilter = 'none'
+
+        // logo.style.backgroundColor = 'rgb(255, 255, 255, .4)'
+        // logo.style.backdropFilter = 'blur(5px)'
+      }, 1000)
+
     } else {
       document.querySelector('main > img').remove()
     }

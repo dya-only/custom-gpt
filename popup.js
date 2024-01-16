@@ -36,3 +36,8 @@ chrome.storage.local.get(['switch', 'img'], (result) => {
     })
   }
 })
+
+document.getElementById("myRange").oninput = function() {
+  let value = this.value
+  console.log(value) // or update another element with this value
+}
