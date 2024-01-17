@@ -27,17 +27,14 @@ document.querySelector('.uploader').addEventListener('change', () => {
   }
 })
 
-chrome.storage.local.get(['switch', 'img'], (result) => {
+
+// Init
+chrome.storage.local.get(['switch', 'img', 'blurRange'], (result) => {
   if (result.switch !== undefined) {
     document.querySelector('.switch > input').checked = result.switch;
 
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      chrome.tabs.sendMessage(tabs[0].id, { action: "changeColor", value: document.querySelector('.switch > input').checked });
+      chrome.tabs.sendMessage(tabs[0].id, { action: "changeColor", value: document.querySelector('.switch > input').checked })
     })
   }
 })
-
-document.getElementById("myRange").oninput = function() {
-  let value = this.value
-  console.log(value) // or update another element with this value
-}

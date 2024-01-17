@@ -1,5 +1,5 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.action === "changeColor") {
+  if (request.action === 'changeColor') {
     if (request.value) {
       const main = document.querySelector('main')
 
@@ -14,9 +14,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           bg.style.filter = 'brightness(50%)'
           bg.style.objectFit = 'cover'
           main.prepend(bg)
-
-          window.location.reload()
         })
+
+        window.location.reload()
       }
     } else {
       document.querySelector('main > img').remove()
@@ -25,6 +25,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 })
 
+
+// Init
 chrome.storage.local.get(['switch', 'img'], (result) => {
   if (result.switch !== undefined) {
     if (result.switch) {
@@ -47,8 +49,6 @@ chrome.storage.local.get(['switch', 'img'], (result) => {
         const nav2 = document.querySelector('main > div[role="presentation"] > div > div > div > div')
         const textarea = document.querySelector('main > div[role="presentation"] > .w-full > form > div > div.flex.w-full.items-center > div')
         const spans = document.querySelectorAll('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.w-full.pt-2 > form > div > div > div > div > div > div > div > span > button')
-        // const logo = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.flex.h-full.flex-col.items-center.justify-center > div.relative > div > div')
-        // const text = document.querySelector('#__next > div.relative.z-0.flex.h-full.w-full.overflow-hidden > div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden > main > div.flex.h-full.flex-col > div.flex-1.overflow-hidden > div > div.flex.h-full.flex-col.items-center.justify-center > div.mb-5.text-2xl.font-medium')
 
         nav.style.transition = 'all .5s'
         nav.style.backgroundColor = 'transparent'
@@ -72,9 +72,6 @@ chrome.storage.local.get(['switch', 'img'], (result) => {
         })
 
         navContainer.style.backdropFilter = 'none'
-
-        // logo.style.backgroundColor = 'rgb(255, 255, 255, .4)'
-        // logo.style.backdropFilter = 'blur(5px)'
       }, 1000)
 
     } else {
